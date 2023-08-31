@@ -1,0 +1,90 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" #Form>
+  <div>
+    <label for="name">Your Name : </label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+  <span *ngIf="Name.touched && Name.errors?.['required']"
+    >name is required</span
+  >
+  <span *ngIf="Name.touched && Name.errors?.['nameIsForbidden']"
+    >name is not valid</span
+  >
+
+  <br />
+
+  <div>
+    <label for="age">Your Age : </label>
+    <input type="text" id="age" formControlName="age" />
+  </div>
+  <span *ngIf="Age.touched && !Age.valid">age is required</span>
+
+  <br />
+
+  <div>
+    <label for="email">Email : </label>
+    <input type="email" id="email" formControlName="email" />
+  </div>
+  <span *ngIf="Email.touched && Email.errors?.['required']"
+    >email is required</span
+  >
+  <span *ngIf="Email.touched && Email.errors?.['email']"
+    >email is not valid</span
+  >
+
+  <br />
+
+  <div>
+    <label for="employeeId">Employee ID : </label>
+    <input type="text" id="employeeId" formControlName="employeeId" />
+  </div>
+  <span *ngIf="EmployeeID.touched && !EmployeeID.valid"
+    >Employee ID is required</span
+  >
+
+  <br />
+
+  <div class="form-group" formGroupName="address">
+    <div>
+      <label for="street">Street : </label>
+      <input type="text" id="street" formControlName="street" />
+    </div>
+    <span *ngIf="Street.touched && !Street.valid">street is required</span>
+
+    <br />
+
+    <div>
+      <label for="city">City : </label>
+      <input type="text" id="city" formControlName="city" />
+    </div>
+    <span *ngIf="City.touched && !City.valid">city is required</span>
+
+    <br />
+
+    <div>
+      <label for="state">State : </label>
+      <input type="text" id="state" formControlName="state" />
+    </div>
+    <span *ngIf="State.touched && !State.valid">state is required</span>
+
+    <br />
+
+    <div>
+      <label for="country">Country : </label>
+      <input type="text" id="country" formControlName="country" />
+    </div>
+    <span *ngIf="Country.touched && !Country.valid">country is required</span>
+
+    <br />
+
+    <div>
+      <label for="pincode">Pincode : </label>
+      <input type="text" id="pincode" formControlName="pincode" />
+    </div>
+    <span *ngIf="Pincode.touched && !Pincode.valid">pincode is required</span>
+
+    <br />
+    <!-- <button type="submit">Submit Form</button> -->
+
+    <button type="submit" [disabled]="!signUpForm.valid">Submit Form</button>
+  </div>
+</form>

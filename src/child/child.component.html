@@ -1,0 +1,14 @@
+<p #parentDataParagraph [ngClass]="someCondition ? 'original' : 'changed'">
+  Parent Data:{{ parentData }}
+</p>
+
+<p appHighlight>Directive Example Text</p>
+<button (click)="dataToParent()">Send Data to Parent</button>
+
+<p *ngFor="let team of pipeExampleArray; index as i">
+  {{ team | shorten: 10 }} {{ i }}
+</p>
+
+<ng-content></ng-content>
+
+<app-form #Form></app-form>
